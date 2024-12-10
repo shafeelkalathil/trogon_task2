@@ -15,7 +15,7 @@ class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderSt
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
 
@@ -48,9 +48,9 @@ class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderSt
           scale: _animation,
           child: Container(
             width: MediaQuery.of(context).size.width * 0.8,
-            margin: EdgeInsets.symmetric(horizontal: 5.0),
+            margin: const EdgeInsets.symmetric(horizontal: 5.0),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 colors: [
                   Color(0xffA40DEE),
                   Color(0xff9C1EC2),
@@ -64,11 +64,11 @@ class _AnimatedCardState extends State<AnimatedCard> with SingleTickerProviderSt
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'Obvio',
                   style: TextStyle(color: Colors.white, fontSize: 24),
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Icon(Icons.volume_down, color: Colors.white, size: 16),

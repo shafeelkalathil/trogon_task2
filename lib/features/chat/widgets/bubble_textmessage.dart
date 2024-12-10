@@ -46,12 +46,12 @@ class BubbleTextMessage extends StatelessWidget {
                       child: GestureDetector(
                         child: Container(
                           decoration: BoxDecoration(
-                            color: isSender ? Colors.grey : Color(0xff122E57),
+                            color: isSender ? Colors.grey : const Color(0xff122E57),
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(isSender ? 24 : 0),
                               topRight: Radius.circular(!isSender ? 24 : 0),
-                              bottomLeft: Radius.circular(24),
-                              bottomRight: Radius.circular(24),
+                              bottomLeft: const Radius.circular(24),
+                              bottomRight: const Radius.circular(24),
                             ),
                           ),
                           child: Padding(

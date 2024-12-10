@@ -50,7 +50,7 @@ class _ChatScreenState extends State<ChatScreen> {
       appBar: AppBar(
         centerTitle: true,
         title: Padding(
-          padding: EdgeInsets.only(left: 20),
+          padding: const EdgeInsets.only(left: 20),
           child: Row(
             children: [
               SvgPicture.asset(AppImages.chatAvatar),
@@ -58,14 +58,14 @@ class _ChatScreenState extends State<ChatScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text("JOHN DOE",style: heading3.copyWith(color: Colors.black),),
-                  Text("Online",style: heading5.copyWith(color: Color(0xffA40DEE)),),
+                  Text("Online",style: heading5.copyWith(color: const Color(0xffA40DEE)),),
                 ],
               ),
             ],
           ),
         ),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert,size: 40,))
+          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert,size: 40,))
         ],
         leading: Padding(
           padding: const EdgeInsets.only(left: 15),
@@ -74,12 +74,12 @@ class _ChatScreenState extends State<ChatScreen> {
               Navigator.pop(context);
             },
             style: OutlinedButton.styleFrom(
-              shape: CircleBorder(),
-              side: BorderSide(color: Color(0xffECECEC), width: 2),
-              padding: EdgeInsets.only(left: 1),
+              shape: const CircleBorder(),
+              side: const BorderSide(color: Color(0xffECECEC), width: 2),
+              padding: const EdgeInsets.only(left: 1),
               backgroundColor: Colors.white,
             ),
-            child: Icon(
+            child: const Icon(
               Icons.close,
               color: Colors.black,
               size: 24,

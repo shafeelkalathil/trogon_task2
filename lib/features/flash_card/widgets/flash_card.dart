@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:trogon_task2/core/utils/extension/size_extension.dart';
-import '../../../core/constants/color_constant.dart';
 import '../../../core/utils/style/text_style.dart';
+import '../../shared/widgets/custom_button.dart';
+import '../../shared/widgets/custom_transparent_button.dart';
 import '../../subscription/view/subscription_view.dart';
 import '../view/add_flash_card.dart';
 
@@ -17,22 +18,22 @@ class FlashCard extends StatelessWidget {
       child: Container(
         width: context.screenWidth * 0.9,
         decoration: BoxDecoration(
-          color: Color(0xffFFFCF0),
+          color: const Color(0xffFFFCF0),
           borderRadius: BorderRadiusDirectional.circular(18),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
               blurRadius: 8,
-              offset: Offset(0, 8),
+              offset: const Offset(0, 8),
             ),
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
               blurRadius: 4,
-              offset: Offset(0, 14),
+              offset: const Offset(0, 14),
             ),
           ],
         ),
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,72 +44,24 @@ class FlashCard extends StatelessWidget {
                   'Everyday Phrases',
                   style: heading4.copyWith(color: Colors.black),
                 ),
-                Icon(Icons.more_vert),
+                const Icon(Icons.more_vert),
               ],
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               'Master common expressions used in\n daily conversations.',
-              style: heading5.copyWith(color: Color(0xff8B8585)),
+              style: heading5.copyWith(color: const Color(0xff8B8585)),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => AddFlashCardScreen(title: 'Everyday Phrases'),));
-                  },
-                  child: Container(
-                    height: 40,
-                    width: context.screenWidth * 0.35,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          Color(0xffA40DEE),
-                          Color(0xff940CD6),
-                        ],
-                      ),
-                      borderRadius: BorderRadiusDirectional.circular(6),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.add,
-                          size: 20,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          "Add Card",
-                          style: heading6.copyWith(color: Colors.white),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(width: 20),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const SubscriptionScreen(),));
-                  },
-                  child: Container(
-                    height: 40,
-                    width: context.screenWidth * 0.35,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadiusDirectional.circular(6),
-                      border: Border.all(
-                        color: AppColors.primaryColor,
-                      ),
-                    ),
-                    child: Center(
-                      child: Text(
-                        "Practice",
-                        style: heading6.copyWith(color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ),
+                CustomButton(title: "Add Card",onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const AddFlashCardScreen(title: 'Everyday Phrases'),));
+                },leadingIcon: true),
+                const SizedBox(width: 20),
+                CustomButtonTransparent(title: "Practice",onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SubscriptionScreen(),));
+                },),
               ],
             ),
           ],
@@ -117,3 +70,4 @@ class FlashCard extends StatelessWidget {
     );
   }
 }
+

@@ -5,6 +5,7 @@ import 'package:trogon_task2/core/constants/image_constants.dart';
 import 'package:trogon_task2/core/utils/extension/size_extension.dart';
 import '../../../core/constants/color_constant.dart';
 import '../../../core/utils/style/text_style.dart';
+import '../../shared/widgets/custom_transparent_button.dart';
 import '../widgets/animated_card.dart';
 
 class AddFlashCardScreen extends StatelessWidget {
@@ -13,7 +14,7 @@ class AddFlashCardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CarouselController _controller = CarouselController();
+    final CarouselController controller = CarouselController();
     return Scaffold(
       body: Stack(
         children: [
@@ -44,12 +45,12 @@ class AddFlashCardScreen extends StatelessWidget {
                             Navigator.pop(context);
                           },
                           style: OutlinedButton.styleFrom(
-                            shape: CircleBorder(),
-                            side: BorderSide(color: Color(0xffECECEC), width: 2),
-                            padding: EdgeInsets.only(left: 1),
+                            shape: const CircleBorder(),
+                            side: const BorderSide(color: Color(0xffECECEC), width: 2),
+                            padding: const EdgeInsets.only(left: 1),
                             backgroundColor: Colors.white,
                           ),
-                          child: Icon(
+                          child: const Icon(
                             Icons.arrow_back,
                             color: Colors.black,
                             size: 24,
@@ -78,7 +79,7 @@ class AddFlashCardScreen extends StatelessWidget {
                         enlargeCenterPage: true,
                         autoPlay: false,
                         aspectRatio: 16 / 9,
-                        autoPlayInterval: Duration(seconds: 3),
+                        autoPlayInterval: const Duration(seconds: 3),
                       ),
                       // carouselController: _controller,
                     ),
@@ -86,48 +87,10 @@ class AddFlashCardScreen extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(
-                          onTap: () {
-                            // _controller.previousPage();
-                          },
-                          child: Container(
-                            height: 40,
-                            width: context.screenWidth * 0.35,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadiusDirectional.circular(6),
-                              border: Border.all(
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Previous",
-                                style: heading6.copyWith(color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            // _controller.nextPage();
-                          },
-                          child: Container(
-                            height: 40,
-                            width: context.screenWidth * 0.35,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadiusDirectional.circular(6),
-                              border: Border.all(
-                                color: AppColors.primaryColor,
-                              ),
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Next",
-                                style: heading6.copyWith(color: Colors.black),
-                              ),
-                            ),
-                          ),
-                        ),
+                        CustomButtonTransparent(title: "Previous",onTap: () {
+                        },),
+                        CustomButtonTransparent(title: "Next",onTap: () {
+                        },),
                       ],
                     ),
                   ],
@@ -144,7 +107,7 @@ class AddFlashCardScreen extends StatelessWidget {
 class CurvedPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()..color = Color(0xffA40DEE);
+    Paint paint = Paint()..color = const Color(0xffA40DEE);
     Path path = Path();
 
     path.lineTo(0, 150);

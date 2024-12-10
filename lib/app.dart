@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'core/theme/theme.dart';
-import 'features/chat/view/chat_view.dart';
-import 'features/flash_card/view/add_flash_card.dart';
 import 'features/flash_card/view/flash_card_view.dart';
-import 'features/subscription/view/subscription_view.dart';
 
 
 class App extends StatelessWidget {
@@ -21,7 +18,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: FlashCardScreen(),
+      home: const FlashCardScreen(),
     );
   }
 }
