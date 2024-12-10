@@ -28,7 +28,7 @@ class BubbleTextMessage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // Display the CircleAvatar on the left for receiver, on the right for sender
-            if (!isSender) SvgPicture.asset(AppImages.chatAvatar),
+            if (!isSender) Image.asset(AppImages.chatAvatar2),
             if (!isSender) const SizedBox(width: 8), // Space between avatar and text
 
             Column(
@@ -72,7 +72,7 @@ class BubbleTextMessage extends StatelessWidget {
             ),
             // Space between text and avatar
             if (isSender) const SizedBox(width: 8),
-            if (isSender) const CircleAvatar(radius: 15,), // Avatar for sender on the right
+            if (isSender) const CircleAvatar(radius: 17,backgroundColor: Colors.black,), // Avatar for sender on the right
           ],
         ),
       ),

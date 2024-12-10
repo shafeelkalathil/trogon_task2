@@ -65,7 +65,7 @@ class AddFlashCardScreen extends StatelessWidget {
                       children: [
                         Text(title, style: heading1.copyWith(color: Colors.black)),
                         SizedBox(width: context.screenWidth * 0.1),
-                        _circularProgressWithText(percentage: 30,text: '5/50')
+                        _circularProgressWithText(percentage: 30,text: '5/15')
                       ],
                     ),
                     SizedBox(height: context.screenHeight * 0.1),

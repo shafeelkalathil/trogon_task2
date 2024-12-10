@@ -53,7 +53,8 @@ class _ChatScreenState extends State<ChatScreen> {
           padding: const EdgeInsets.only(left: 20),
           child: Row(
             children: [
-              SvgPicture.asset(AppImages.chatAvatar),
+              Image.asset(AppImages.chatAvatar2),
+              const SizedBox(width: 10,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
