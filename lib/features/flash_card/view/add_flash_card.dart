@@ -8,13 +8,22 @@ import '../../../core/utils/style/text_style.dart';
 import '../../shared/widgets/custom_transparent_button.dart';
 import '../widgets/animated_card.dart';
 
-class AddFlashCardScreen extends StatelessWidget {
+class AddFlashCardScreen extends StatefulWidget {
   const AddFlashCardScreen({super.key, required this.title});
   final String title;
 
   @override
+  State<AddFlashCardScreen> createState() => _AddFlashCardScreenState();
+}
+
+class _AddFlashCardScreenState extends State<AddFlashCardScreen> {
+  final CarouselSliderController controller = CarouselSliderController();
+
+  int currentIndex= 0 ;
+  List item = ['','','','',''];
+  @override
   Widget build(BuildContext context) {
-    final CarouselController controller = CarouselController();
+
     return Scaffold(
       body: Stack(
         children: [
@@ -63,14 +72,14 @@ class AddFlashCardScreen extends StatelessWidget {
                     SizedBox(height: context.screenHeight * 0.12),
                     Row(
                       children: [
-                        Text(title, style: heading1.copyWith(color: Colors.black)),
+                        Text(widget.title, style: heading1.copyWith(color: Colors.black)),
                         SizedBox(width: context.screenWidth * 0.1),
-                        _circularProgressWithText(percentage: 30,text: '5/15')
+                        _circularProgressWithText(percentage: 30,text: '${currentIndex+1}/${item.length}')
                       ],
                     ),
                     SizedBox(height: context.screenHeight * 0.1),
                     CarouselSlider.builder(
-                      itemCount: 5,
+                      itemCount: item.length,
                       itemBuilder: (context, index, realIndex) {
                         return const AnimatedCard();
                       },
@@ -80,16 +89,23 @@ class AddFlashCardScreen extends StatelessWidget {
                         autoPlay: false,
                         aspectRatio: 16 / 9,
                         autoPlayInterval: const Duration(seconds: 3),
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            currentIndex = index;
+                          });
+                        },
                       ),
-                      // carouselController: _controller,
+                      carouselController: controller,
                     ),
                     SizedBox(height: context.screenHeight * 0.1),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CustomButtonTransparent(title: "Previous",onTap: () {
+                          controller.previousPage();
                         },),
                         CustomButtonTransparent(title: "Next",onTap: () {
+                          controller.nextPage();
                         },),
                       ],
                     ),
