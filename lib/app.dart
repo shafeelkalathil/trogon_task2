@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'core/theme/theme.dart';
 import 'features/flash_card/view/flash_card_view.dart';
 

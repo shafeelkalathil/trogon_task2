@@ -13,22 +13,22 @@ class SubscriptionScreen extends StatelessWidget {
       body: Column(
         children: [
           Expanded(
-            child:  Container(
-              width: context.screenWidth,
-              height: context.screenHeight*0.45,
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.topRight,
-                  colors: [
-                    Color(0xffA40DEE),
-                    Color(0xffE3B4FA),
-                  ],
-                ),
-              ),
-              child: Column(
-                children: [
-                  Padding(
+            child:  Column(
+              children: [
+                Container(
+                  width: context.screenWidth,
+                  height: context.screenHeight*0.45,
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.topRight,
+                      colors: [
+                        Color(0xffA40DEE),
+                        Color(0xffE3B4FA),
+                      ],
+                    ),
+                  ),
+                  child: Padding(
                     padding: EdgeInsets.only(left: 20,right:20,top:context.screenWidth*0.18 ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -61,8 +61,20 @@ class SubscriptionScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+                SizedBox(
+                  width: context.screenWidth,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 20,right:20,top:context.screenWidth*0.18 ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           Container(
